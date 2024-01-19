@@ -352,7 +352,7 @@ const updateUserCoverImage = asyncHandler(async (req, res) => {
   return res.status(200).json(200, user, "Cover Image Updated");
 });
 
-// get UserChannel Profile
+// get UserChannel Profile : Aggregation Pipeline
 const getUserChannel = asyncHandler(async (req, res) => {
   const { username } = req.params;
   if (!username?.trim()) {
@@ -425,7 +425,7 @@ const getUserChannel = asyncHandler(async (req, res) => {
     .json(new ApiResponse(200, channel[0], "channel fetched successfully"));
 });
 
-// get watch history
+// get watch history : Aggregation Pipeline
 const getWatchHistory = asyncHandler(async (req, res) => {
   const user = await User.aggregate([
     {
